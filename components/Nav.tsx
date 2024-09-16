@@ -1,12 +1,10 @@
 import Link from 'next/link';
 
-import { Button } from './ui/button';
 import Image from 'next/image';
-
-import MenuIcon from '../assets/icons/menu.svg';
 
 import avatar from '../assets/img/avatar.png';
 import SearchBar from './SearchBar';
+import MenuButton from './MenuButton';
 
 export default function Nav() {
   return (
@@ -16,9 +14,7 @@ export default function Nav() {
       </Link>
       <SearchBar />
       <div className="flex gap-6 items-center">
-        <Button variant={'ghost'} className="p-1 h-auto">
-          <MenuIcon />
-        </Button>
+        <MenuButton />
         <Link
           href="/profile"
           className="hover:shadow-xl hover:shadow-accent rounded-full"
