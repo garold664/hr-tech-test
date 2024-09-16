@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import SideBar from '@/components/SideBar';
 import avatar from '@/assets/img/avatar.png';
-import DesktopLinks from '@/components/DesktopLinks';
-import { MyInfoLinks } from '@/data/data';
+import MyInfoHeader from '@/components/MyInfoHeader';
 
 interface MyInfoLayoutProps {
   children: React.ReactNode;
@@ -18,16 +17,7 @@ export default function MyInfoLayout({ children }: MyInfoLayoutProps) {
         />
       </div>
       <SideBar />
-      <header className="flex flex-col justify-end layout-header  pt-16">
-        <h1 className="text-[28px] font-bold mb-6">Alexandra Kuibyshevskaya</h1>
-        <DesktopLinks
-          links={MyInfoLinks}
-          activeColor="white"
-          spacing={4}
-          itemWidth={90}
-          className="text-sm"
-        />
-      </header>
+      <MyInfoHeader />
       <div className="layout-bg bg-primary pt-16" />
       <main className="layout-main bg-white">{children}</main>
     </div>

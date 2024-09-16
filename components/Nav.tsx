@@ -13,7 +13,7 @@ import { Button } from './ui/button';
 import SettingsIcon from '../assets/icons/settings.svg';
 import BellIcon from '../assets/icons/bell.svg';
 import HelpIcon from '../assets/icons/circle-help.svg';
-import { mainNavigation, mainNavLinks } from '@/data/data';
+import { mainNavLinks } from '@/data/data';
 
 export default function Nav() {
   const [windowWidth, setWindowWidth] = useState<'sm' | 'xl'>('sm');

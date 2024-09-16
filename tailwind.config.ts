@@ -16,6 +16,7 @@ const config: Config = {
         foreground: 'var(--foreground)',
         primary: '#dae6f2',
         secondary: '#f0f3f8',
+        tertiary: '#7c96b1',
         accent: { ...colors.blue, DEFAULT: colors.blue[500] },
       },
       borderRadius: {
