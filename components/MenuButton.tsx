@@ -3,7 +3,7 @@
 import MenuIcon from '../assets/icons/menu.svg';
 
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { mainNavigation } from '../data/data';
+import { mainNavLinks } from '../data/data';
 import { useState } from 'react';
 import Link from 'next/link';
 export default function MenuButton() {
@@ -15,7 +15,7 @@ export default function MenuButton() {
       </DialogTrigger>
       <DialogContent className="rounded-2xl inset-x-4 translate-x-0 w-auto">
         <ul>
-          {mainNavigation.map((link) => (
+          {mainNavLinks.map((link) => (
             <li className="flex justify-center text-lg" key={link.name}>
               <Link href={link.href} onClick={() => setOpen(false)}>
                 {link.name}

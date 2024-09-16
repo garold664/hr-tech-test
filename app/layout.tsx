@@ -3,7 +3,7 @@ import './globals.css';
 import Nav from '@/components/Nav';
 
 import { Inter } from 'next/font/google';
-import Header from '@/components/Header';
+// import Header from '@/components/Header';
 
 const inter = Inter({ weight: ['400', '500', '600'], subsets: ['latin'] });
 
@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
         <Nav />
-        <Header />
+        {/* <Header /> */}
         {children}
       </body>
     </html>

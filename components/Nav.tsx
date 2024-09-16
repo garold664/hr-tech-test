@@ -13,6 +13,7 @@ import { Button } from './ui/button';
 import SettingsIcon from '../assets/icons/settings.svg';
 import BellIcon from '../assets/icons/bell.svg';
 import HelpIcon from '../assets/icons/circle-help.svg';
+import { mainNavigation, mainNavLinks } from '@/data/data';
 
 export default function Nav() {
   const [windowWidth, setWindowWidth] = useState<'sm' | 'xl'>('sm');
@@ -37,7 +38,13 @@ export default function Nav() {
       <Link href="/" className="text-xl hover:text-accent xl:font-bold xl:mb-4">
         HarmonyHR
       </Link>
-      {windowWidth === 'xl' && <DesktopLinks />}
+      {windowWidth === 'xl' && (
+        <DesktopLinks
+          links={mainNavLinks}
+          activeColor="primary"
+          className="ml-16 mr-14 -mb-4 text-lg"
+        />
+      )}
       <SearchBar windowWidth={windowWidth} />
       <div className="flex gap-6 items-center xl:-mt-3 xl:ml-3">
         {windowWidth === 'sm' && <MenuButton />}
@@ -65,7 +72,7 @@ export default function Nav() {
         )}
         <Link
           href="/profile"
-          className="hover:shadow-sm hover:shadow-accent rounded-full"
+          className="hover:shadow-sm hover:shadow-accent rounded-full shrink-0"
         >
           <Image src={avatar} alt="avatar" className="w-9 h-9 rounded-full" />
         </Link>

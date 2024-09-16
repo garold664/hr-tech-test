@@ -23,4 +23,39 @@ body {
   :root {
     --radius: 0.5rem;
   }
+
+  .layout-grid {
+    display: grid;
+    grid-template-areas:
+      'gutter1 avatar header gutter2'
+      'gutter1 aside main gutter2';
+    grid-template-columns:
+      calc((100vw - 1360px) / 2) 225px auto
+      calc((100vw - 1360px) / 2);
+    grid-template-rows: 184px auto;
+  }
+
+  .layout-header {
+    grid-area: header;
+    z-index: 10;
+  }
+
+  .layout-aside {
+    grid-area: aside;
+    z-index: 5;
+  }
+
+  .layout-main {
+    grid-area: main;
+  }
+
+  .layout-avatar {
+    grid-area: avatar;
+    z-index: 10;
+  }
+
+  .layout-bg {
+    grid-column: gutter1-start / gutter2-end;
+    grid-row: avatar-start / main-start;
+  }
 }
