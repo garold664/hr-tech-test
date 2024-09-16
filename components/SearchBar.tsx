@@ -6,26 +6,31 @@ import SearchIcon from '../assets/icons/search.svg';
 import XIcon from '../assets/icons/x.svg';
 import { Button } from './ui/button';
 
-export default function SearchBar() {
+interface SearchBarProps {
+  windowWidth: 'sm' | 'xl';
+}
+export default function SearchBar({ windowWidth }: SearchBarProps) {
   const [showFullWidthSearch, setShowFullWidthSearch] = useState(false);
   return (
     <form
       action=""
-      className={`${
-        showFullWidthSearch
+      className={`xl:w-[395px] xl:-mt-3 xl:mr-auto ${
+        showFullWidthSearch && windowWidth === 'sm'
           ? 'absolute inset-0 w-full h-full flex items-center px-2 pr-10 bg-white'
           : 'relative'
       }`}
     >
       <Input
-        className={`text-lg placeholder:text-black ${
+        className={`text-lg placeholder:text-black xl:w-full xl:py-2 xl:h-10 ${
           showFullWidthSearch
             ? 'w-full max-w-96 pl-14 '
-            : 'w-12 h-8 text-transparent'
+            : 'w-12 h-8 text-transparent xl:text-black xl:pl-14'
         }`}
-        placeholder={showFullWidthSearch ? 'Search' : ''}
+        placeholder={
+          showFullWidthSearch || windowWidth === 'xl' ? 'Search' : ''
+        }
       />
-      {showFullWidthSearch ? (
+      {showFullWidthSearch || windowWidth === 'xl' ? (
         <>
           <Button
             type="button"
@@ -34,14 +39,16 @@ export default function SearchBar() {
           >
             <SearchIcon />
           </Button>
-          <Button
-            type="button"
-            variant={'ghost'}
-            className="absolute right-4 top-1/2 -translate-y-1/2  p-0 h-auto hover:text-accent hover:bg-transparent"
-            onClick={() => setShowFullWidthSearch(false)}
-          >
-            <XIcon />
-          </Button>
+          {showFullWidthSearch && windowWidth === 'sm' && (
+            <Button
+              type="button"
+              variant={'ghost'}
+              className="absolute right-4 top-1/2 -translate-y-1/2  p-0 h-auto hover:text-accent hover:bg-transparent"
+              onClick={() => setShowFullWidthSearch(false)}
+            >
+              <XIcon />
+            </Button>
+          )}
         </>
       ) : (
         <Button
