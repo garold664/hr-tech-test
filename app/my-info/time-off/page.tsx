@@ -2,18 +2,16 @@ import NoteClockIcon from '@/assets/icons/note-clock.svg';
 import MountainsIcon from '@/assets/icons/mountains-moon.svg';
 import ClockIcon from '@/assets/icons/clock.svg';
 import CrossIcon from '@/assets/icons/cross.svg';
-import DotIcon from '@/assets/icons/dot.svg';
-import PiggyBankIcon from '@/assets/icons/piggy-bank.svg';
 import { Button } from '@/components/ui/button';
 import Widget from '@/components/Widget';
-import { cn } from '@/lib/utils';
 import { upcomingTimeOff } from '@/data/data';
 import TimeOffBlock from '@/components/TimeOffBlock';
-const sectionStyles = 'border-b-2 border-tertiary pb-3 flex items-center';
+import HistorySection from '@/components/HistorySection';
+
 export default function TimeOff() {
   return (
     <>
-      <section className={sectionStyles}>
+      <section className="block-with-divider">
         <h2 className="flex gap-3 items-center text-xl">
           <NoteClockIcon /> Time Off
         </h2>
@@ -54,13 +52,14 @@ export default function TimeOff() {
         />
       </section>
       <section className="pt-1">
-        <h2 className={`flex gap-2 ${sectionStyles}`}>
+        <h2 className={`block-with-divider flex gap-2`}>
           <ClockIcon /> <span className="text-accent3">Upcoming Time Off</span>
         </h2>
         {upcomingTimeOff.map((timeOff) => (
           <TimeOffBlock key={timeOff.date} {...timeOff} />
         ))}
       </section>
+      <HistorySection />
     </>
   );
 }

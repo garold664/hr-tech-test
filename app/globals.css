@@ -59,4 +59,8 @@ body {
     grid-column: gutter1-start / gutter2-end;
     grid-row: avatar-start / main-start;
   }
+
+  .block-with-divider {
+    @apply border-b-2 border-tertiary pb-3 flex items-center;
+  }
 }
