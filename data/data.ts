@@ -1,3 +1,5 @@
+import type { TimeOff } from '@/types/types';
+
 export const mainNavLinks = [
   { name: 'Home', href: '/' },
   { name: 'My info', href: '/my-info' },
@@ -20,4 +22,18 @@ export const MyInfoLinks = [
   { name: 'Salary', href: 'my-info/salary' },
   { name: 'Bonuses', href: 'my-info/bonuses' },
   { name: 'Advertisements', href: 'my-info/advertisements' },
+];
+
+export const upcomingTimeOff: TimeOff[] = [
+  {
+    type: 'sick',
+    date: 'Jan 27',
+    daysOf: 1,
+  },
+  {
+    type: 'holiday',
+    date: 'Jul 4',
+    daysOf: 1,
+    holiday: 'Independence Day',
+  },
 ];

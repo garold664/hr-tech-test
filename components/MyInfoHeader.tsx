@@ -17,7 +17,7 @@ export default function MyInfoHeader() {
         <h1 className="text-[28px] font-bold mb-7">Alexandra Kuibyshevskaya</h1>
         <div className="flex gap-x-4 mb-auto">
           <DropdownMenu>
-            <Button variant={'outline'} asChild className="leading-none">
+            <Button variant={'outline'} size={'sm'} asChild>
               <DropdownMenuTrigger className="flex items-center gap-x-2">
                 Request a Change <ChevronDown />
               </DropdownMenuTrigger>
@@ -30,7 +30,7 @@ export default function MyInfoHeader() {
             </DropdownMenuContent>
           </DropdownMenu>
           <DropdownMenu>
-            <Button variant={'outline'} asChild>
+            <Button variant={'outline'} size={'sm'} asChild>
               <DropdownMenuTrigger className="flex items-center gap-x-2">
                 <SettingsIcon className="w-4" /> <ChevronDown />
               </DropdownMenuTrigger>

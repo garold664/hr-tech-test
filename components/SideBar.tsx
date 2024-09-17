@@ -27,7 +27,7 @@ export default function SideBar() {
           href="mailto:avd.yana@videorollnet"
           className=" flex text-nowrap gap-2 hover:text-accent mb-3"
         >
-          <MailIcon /> avd.yana@videorollnet
+          <MailIcon className="shrink-0" /> avd.yana@videorollnet
         </a>
         <div className="flex items-center gap-x-4">
           <a href="" className="hover:text-accent">
