@@ -63,4 +63,11 @@ body {
   .block-with-divider {
     @apply border-b-2 border-tertiary pb-3 flex items-center;
   }
+
+  .tbody-with-space-above::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 16px;
+  }
 }

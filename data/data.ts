@@ -1,4 +1,4 @@
-import type { TimeOff } from '@/types/types';
+import type { TableData, TableDataHeaders, TimeOff } from '@/types/types';
 
 export const mainNavLinks = [
   { name: 'Home', href: '/' },
@@ -35,5 +35,64 @@ export const upcomingTimeOff: TimeOff[] = [
     date: 'Jul 4',
     daysOf: 1,
     holiday: 'Independence Day',
+  },
+];
+
+export const tableHeaders: TableDataHeaders = [
+  ['date', 'Date'],
+  ['description', 'Description'],
+  ['used-days', 'Used Days (-)'],
+  ['earned-days', 'Earned Days (+)'],
+  ['balance', 'Balance'],
+];
+
+export const tableData: TableData[] = [
+  {
+    id: 1,
+    date: '23/05/2024',
+    description: 'Accrual for 23/05/2024 to 20/11/2024',
+    'used-days': 0,
+    'earned-days': '3.00',
+    balance: '3.00',
+  },
+  {
+    id: 2,
+    date: '23/05/2024',
+    description: 'Accrual for 23/05/2024 to 20/11/2024',
+    'used-days': -6,
+    'earned-days': '3.00',
+    balance: '3.00',
+  },
+  {
+    id: 3,
+    date: '',
+    description: '',
+    'used-days': 0,
+    'earned-days': '3.00',
+    balance: '3.00',
+  },
+  {
+    id: 4,
+    date: '23/05/2024',
+    description: 'Accrual for 23/05/2024 to 20/11/2024',
+    'used-days': 0,
+    'earned-days': '3.00',
+    balance: '3.00',
+  },
+  {
+    id: 5,
+    date: '',
+    description: '',
+    'used-days': -6,
+    'earned-days': '3.00',
+    balance: '3.00',
+  },
+  {
+    id: 6,
+    date: '23/05/2024',
+    description: 'Accrual for 23/05/2024 to 20/11/2024',
+    'used-days': -6,
+    'earned-days': '3.00',
+    balance: '3.00',
   },
 ];
