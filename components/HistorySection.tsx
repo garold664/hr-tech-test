@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+
 import { Button } from './ui/button';
 import XIcon from '@/assets/icons/x.svg';
 
@@ -18,14 +19,8 @@ export default function HistorySection() {
       </h2>
       <form className="flex items-center gap-4">
         <Select>
-          <SelectTrigger className="w-[256px]">
+          <SelectTrigger className="w-[256px]" withEraseBtn={true}>
             <SelectValue placeholder="Sick" />
-            <Button
-              variant="ghost"
-              className="ml-auto p-0 text-tertiary h-auto"
-            >
-              <XIcon />
-            </Button>
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="sick">Sick</SelectItem>
@@ -36,14 +31,8 @@ export default function HistorySection() {
         </Select>
 
         <Select>
-          <SelectTrigger className="w-24">
+          <SelectTrigger className="w-24" withEraseBtn={true}>
             <SelectValue placeholder="All" />
-            <Button
-              variant="ghost"
-              className="ml-auto p-0 text-tertiary h-auto"
-            >
-              <XIcon />
-            </Button>
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="used-days">Used days</SelectItem>
@@ -52,7 +41,10 @@ export default function HistorySection() {
         </Select>
 
         <Select>
-          <SelectTrigger className="w-44 ml-auto text-base">
+          <SelectTrigger
+            className="w-44 text-base"
+            classNameForWrapper="ml-auto"
+          >
             <SelectValue placeholder="Balance History" />
           </SelectTrigger>
           <SelectContent>

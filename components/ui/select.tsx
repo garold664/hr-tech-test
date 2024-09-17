@@ -7,6 +7,8 @@ import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 import ChevronIcon from '@/assets/icons/chevron-down.svg';
+import XIcon from '@/assets/icons/x.svg';
+import { Button } from './button';
 
 const Select = SelectPrimitive.Root;
 
@@ -16,26 +18,48 @@ const SelectValue = SelectPrimitive.Value;
 
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <SelectPrimitive.Trigger
-    ref={ref}
-    className={cn(
-      'flex  w-full items-center justify-between rounded-md border border-tertiary  text-sm ring-offset-white placeholder:text-neutral-500 hover:text-accent hover:border-accent focus:outline-none focus:ring-2 focus:ring-neutral-950 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 dark:border-neutral-800 dark:bg-neutral-950 dark:ring-offset-neutral-950 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-300',
-      className
-    )}
-    {...props}
-  >
-    <div className="bg-white h-8 px-2 py-1 rounded-md w-full text-left flex items-center">
-      {children}
-    </div>
-    <div className="bg-primary p-1 h-8 flex items-center rounded-e-md">
-      <SelectPrimitive.Icon asChild>
-        <ChevronIcon />
-      </SelectPrimitive.Icon>
-    </div>
-  </SelectPrimitive.Trigger>
-));
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> & {
+    withEraseBtn?: boolean;
+    classNameForWrapper?: string;
+  }
+>(
+  (
+    { className, children, withEraseBtn, classNameForWrapper, ...props },
+    ref
+  ) => {
+    console.log(withEraseBtn);
+    return (
+      <div className={cn('relative', classNameForWrapper)}>
+        <SelectPrimitive.Trigger
+          ref={ref}
+          className={cn(
+            'flex  w-full items-center justify-between rounded-md border border-tertiary  text-sm ring-offset-white placeholder:text-neutral-500 hover:text-accent hover:border-accent focus:outline-none focus:ring-2 focus:ring-neutral-950 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 dark:border-neutral-800 dark:bg-neutral-950 dark:ring-offset-neutral-950 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-300',
+            className
+          )}
+          {...props}
+        >
+          <div className="bg-white h-8 px-2 py-1 rounded-md w-full text-left flex items-center">
+            {children}
+          </div>
+
+          <div className="bg-primary p-1 h-8 flex items-center rounded-e-md">
+            <SelectPrimitive.Icon asChild>
+              <ChevronIcon />
+            </SelectPrimitive.Icon>
+          </div>
+        </SelectPrimitive.Trigger>
+        {withEraseBtn && (
+          <Button
+            variant="ghost"
+            className="absolute right-8 top-1/2 -translate-y-1/2 p-0 text-tertiary h-auto"
+          >
+            <XIcon />
+          </Button>
+        )}
+      </div>
+    );
+  }
+);
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
 const SelectScrollUpButton = React.forwardRef<
