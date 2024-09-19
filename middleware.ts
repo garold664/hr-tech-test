@@ -5,7 +5,8 @@ import createApolloClient from './apollo/apollo-client';
 import { REFRESH_TOKEN } from './apollo/queries';
 import { setAccessToken, setRefreshToken } from './helpers/helpers';
 
-const origin = 'http://localhost:3000';
+const origin = process.env.ORIGIN;
+console.log(origin);
 
 const apolloClient = createApolloClient();
 export async function middleware(request: NextRequest) {

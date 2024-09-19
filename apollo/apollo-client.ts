@@ -6,7 +6,7 @@ import {
 } from '@apollo/client';
 
 const httpLink = new HttpLink({
-  uri: 'https://api.escuelajs.co/graphql',
+  uri: process.env.GRAPHQL_ENDPOINT,
 });
 const createApolloClient = (access_token?: string) => {
   if (access_token) {
@@ -26,7 +26,7 @@ const createApolloClient = (access_token?: string) => {
   }
 
   return new ApolloClient({
-    uri: 'https://api.escuelajs.co/graphql',
+    uri: process.env.GRAPHQL_ENDPOINT,
     cache: new InMemoryCache(),
   });
 };
