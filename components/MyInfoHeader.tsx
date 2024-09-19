@@ -1,3 +1,4 @@
+'use client';
 import DesktopLinks from '@/components/DesktopLinks';
 import { MyInfoLinks } from '@/data/data';
 import {
@@ -10,11 +11,15 @@ import {
 import ChevronDown from '@/assets/icons/chevron-down.svg';
 import SettingsIcon from '@/assets/icons/settings.svg';
 import { Button } from '@/components/ui/button';
+import { useUserStore } from '@/store/store';
 export default function MyInfoHeader() {
+  const {
+    user: { name },
+  } = useUserStore();
   return (
     <header className="flex flex-col justify-end layout-header  pt-16">
       <div className="flex justify-between items-center">
-        <h1 className="text-[28px] font-bold mb-7">Alexandra Kuibyshevskaya</h1>
+        <h1 className="text-[28px] font-bold mb-7">{name}</h1>
         <div className="flex gap-x-4 mb-auto">
           <DropdownMenu>
             <Button variant={'outline'} size={'sm'} asChild>
