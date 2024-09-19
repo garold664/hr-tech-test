@@ -10,3 +10,7 @@
 npm i
 npm run dev
 ```
+
+## Демо проекта
+
+[https://hr-tech-test.vercel.app/]
