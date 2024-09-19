@@ -16,9 +16,6 @@ import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { setAccessToken, setRefreshToken } from '@/helpers/helpers';
 
-export const description =
-  "A login form with email and password. There's an option to login with Google and a link to sign up if you don't have an account.";
-
 export default function Home() {
   async function handleSubmit(formData: FormData) {
     'use server';
@@ -87,9 +84,6 @@ export default function Home() {
             </div>
             <Button type="submit" className="w-full">
               Login
-            </Button>
-            <Button variant="outline" className="w-full">
-              Login with Google
             </Button>
           </div>
           <div className="mt-4 text-center text-sm">
