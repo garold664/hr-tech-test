@@ -21,7 +21,6 @@ export const REFRESH_TOKEN = gql`
 export const GET_MY_PROFILE = gql`
   query {
     myProfile {
-      id
       name
       avatar
     }

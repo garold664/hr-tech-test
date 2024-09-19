@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import SideBar from '@/components/SideBar';
-import avatar from '@/assets/img/avatar.png';
 import MyInfoHeader from '@/components/MyInfoHeader';
 import Avatar from '@/components/Avatar';
 

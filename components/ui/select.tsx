@@ -27,7 +27,6 @@ const SelectTrigger = React.forwardRef<
     { className, children, withEraseBtn, classNameForWrapper, ...props },
     ref
   ) => {
-    console.log(withEraseBtn);
     return (
       <div className={cn('relative', classNameForWrapper)}>
         <SelectPrimitive.Trigger

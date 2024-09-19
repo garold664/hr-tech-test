@@ -17,10 +17,12 @@ import { mainNavLinks } from '@/data/data';
 import { LogOut } from 'lucide-react';
 import logout from '@/actions/logout';
 import { useUserStore } from '@/store/store';
+import fetchUserData from '@/actions/fetchUserData';
 
 export default function Nav() {
   const {
-    user: { name, avatar },
+    user: { avatar },
+    setUser,
   } = useUserStore();
   const [windowWidth, setWindowWidth] = useState<'sm' | 'xl'>('sm');
   useEffect(() => {
@@ -35,10 +37,17 @@ export default function Nav() {
     });
     observer.observe(document.body);
 
+    const getUserData = async () => {
+      const { name, avatar } = await fetchUserData();
+      setUser(name, avatar);
+    };
+
+    getUserData();
+
     return () => {
       observer.disconnect();
     };
-  });
+  }, [setUser]);
   return (
     <nav className="relative flex items-center justify-between xl:justify-start px-6 py-2 max-w-[1440px] mx-auto xl:pt-8 xl:pb-3">
       <Link href="/" className="text-xl hover:text-accent xl:font-bold xl:mb-4">
@@ -80,14 +89,19 @@ export default function Nav() {
           href="/profile"
           className=" relative w-9 h-9 hover:shadow-sm hover:shadow-accent rounded-full shrink-0"
         >
-          <Image
-            src={avatar}
-            alt="avatar"
-            fill
-            className="w-9 h-9 rounded-full"
-          />
+          {avatar && (
+            <Image
+              src={avatar}
+              alt="avatar"
+              fill
+              className="w-9 h-9 rounded-full"
+            />
+          )}
+          {!avatar && (
+            <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center"></div>
+          )}
         </Link>
-        <Button onClick={() => logout()}>
+        <Button variant={'ghost'} onClick={() => logout()}>
           <LogOut />
         </Button>
       </div>

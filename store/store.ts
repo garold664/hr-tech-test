@@ -15,8 +15,8 @@ export type Actions = {
 
 export const useUserStore = create<State & Actions>()((set) => ({
   user: {
-    name: 'Jhon',
-    avatar: 'https://i.imgur.com/LDOO4Qs.jpg',
+    name: '',
+    avatar: '',
   },
   setUser: (name, avatar) => set({ user: { name, avatar } }),
 }));

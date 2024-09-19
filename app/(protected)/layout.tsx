@@ -3,10 +3,6 @@ import '@/app/globals.css';
 import Nav from '@/components/Nav';
 
 import { Inter } from 'next/font/google';
-import createApolloClient from '@/apollo/apollo-client';
-import { cookies } from 'next/headers';
-import { GET_MY_PROFILE } from '@/apollo/queries';
-// import Header from '@/components/Header';
 
 const inter = Inter({ weight: ['400', '500', '600'], subsets: ['latin'] });
 
@@ -20,16 +16,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = cookies();
-  const accessToken = cookieStore.get('Access-Token');
-  console.log('accessToken: ', accessToken);
-  if (!accessToken) return;
-  const apolloClient = createApolloClient(accessToken.value);
-
-  const data = await apolloClient.query({
-    query: GET_MY_PROFILE,
-  });
-  console.log(data);
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
