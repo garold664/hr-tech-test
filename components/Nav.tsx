@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import Image from 'next/image';
 
-import avatar from '../assets/img/avatar.png';
+// import avatar from '../assets/img/avatar.png';
 import SearchBar from './SearchBar';
 import MenuButton from './MenuButton';
 import { useEffect, useState } from 'react';
@@ -16,8 +16,12 @@ import HelpIcon from '../assets/icons/circle-help.svg';
 import { mainNavLinks } from '@/data/data';
 import { LogOut } from 'lucide-react';
 import logout from '@/actions/logout';
+import { useUserStore } from '@/store/store';
 
 export default function Nav() {
+  const {
+    user: { name, avatar },
+  } = useUserStore();
   const [windowWidth, setWindowWidth] = useState<'sm' | 'xl'>('sm');
   useEffect(() => {
     const observer = new ResizeObserver((entries) => {
@@ -74,9 +78,14 @@ export default function Nav() {
         )}
         <Link
           href="/profile"
-          className="hover:shadow-sm hover:shadow-accent rounded-full shrink-0"
+          className=" relative w-9 h-9 hover:shadow-sm hover:shadow-accent rounded-full shrink-0"
         >
-          <Image src={avatar} alt="avatar" className="w-9 h-9 rounded-full" />
+          <Image
+            src={avatar}
+            alt="avatar"
+            fill
+            className="w-9 h-9 rounded-full"
+          />
         </Link>
         <Button onClick={() => logout()}>
           <LogOut />
