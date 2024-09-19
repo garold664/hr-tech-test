@@ -8,18 +8,17 @@ import {
 const httpLink = new HttpLink({
   uri: 'https://api.escuelajs.co/graphql',
 });
-const createApolloClient = (data?: any) => {
-  const authLink = new ApolloLink((operation, forward) => {
-    const { access_token: token } = data.login;
-    operation.setContext({
-      headers: {
-        authorization: token ? `Bearer ${token}` : '',
-      },
+const createApolloClient = (access_token?: string) => {
+  if (access_token) {
+    const authLink = new ApolloLink((operation, forward) => {
+      const token = access_token;
+      operation.setContext({
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+      return forward(operation);
     });
-    return forward(operation);
-  });
-
-  if (data) {
     return new ApolloClient({
       link: authLink.concat(httpLink),
       cache: new InMemoryCache(),
