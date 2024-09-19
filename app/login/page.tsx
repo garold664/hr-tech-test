@@ -32,8 +32,6 @@ export default function Home() {
           password: formData.get('password'),
         },
       });
-      // console.log(formData);
-      // console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -41,25 +39,14 @@ export default function Home() {
       const cookieStore = cookies();
       setAccessToken(cookieStore, data.data.login.access_token);
       setRefreshToken(cookieStore, data.data.login.refresh_token);
-      // cookieStore.set('Access-Token', data.data.login.access_token, {
-      //   maxAge: 30,
-      //   // maxAge: 36000, // 10 hours
-      //   httpOnly: true,
-      //   path: '/',
-      //   secure: true,
-      // });
-      // cookieStore.set('Refresh-Token', data.data.login.refresh_token, {
-      //   maxAge: 36000,
-      //   // maxAge: 1728000, // 20 days
-      //   httpOnly: true,
-      //   path: '/',
-      //   secure: true,
-      // });
       redirect('/my-info/time-off');
     }
   }
   return (
-    <form action={handleSubmit}>
+    <form
+      action={handleSubmit}
+      className="flex flex-col justify-center items-center h-screen"
+    >
       <Card className="mx-auto max-w-sm">
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
