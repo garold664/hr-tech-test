@@ -14,6 +14,8 @@ import SettingsIcon from '../assets/icons/settings.svg';
 import BellIcon from '../assets/icons/bell.svg';
 import HelpIcon from '../assets/icons/circle-help.svg';
 import { mainNavLinks } from '@/data/data';
+import { LogOut } from 'lucide-react';
+import logout from '@/actions/logout';
 
 export default function Nav() {
   const [windowWidth, setWindowWidth] = useState<'sm' | 'xl'>('sm');
@@ -76,6 +78,9 @@ export default function Nav() {
         >
           <Image src={avatar} alt="avatar" className="w-9 h-9 rounded-full" />
         </Link>
+        <Button onClick={() => logout()}>
+          <LogOut />
+        </Button>
       </div>
     </nav>
   );

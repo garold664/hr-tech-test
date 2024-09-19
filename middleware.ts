@@ -31,7 +31,7 @@ export async function middleware(request: NextRequest) {
         },
       });
 
-      console.log('new tokens: ', { refresh_token, access_token });
+      // console.log('new tokens: ', { refresh_token, access_token });
       const response = NextResponse.next();
       setAccessToken(response.cookies, access_token);
       setRefreshToken(response.cookies, refresh_token);

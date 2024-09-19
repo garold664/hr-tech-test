@@ -23,7 +23,6 @@ export default function Home() {
   async function handleSubmit(formData: FormData) {
     'use server';
     const apolloClient = createApolloClient();
-    console.log(formData.get('email'));
     let data = null;
     try {
       data = await apolloClient.mutate({
@@ -33,8 +32,8 @@ export default function Home() {
           password: formData.get('password'),
         },
       });
-      console.log(formData);
-      console.log(data);
+      // console.log(formData);
+      // console.log(data);
     } catch (error) {
       console.error(error);
     }

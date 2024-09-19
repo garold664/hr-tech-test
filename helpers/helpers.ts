@@ -11,7 +11,7 @@ export function setAccessToken(store: ResponseCookies, token: string) {
 }
 
 export function setRefreshToken(store: ResponseCookies, token: string) {
-  store.set('Access-Token', token, {
+  store.set('Refresh-Token', token, {
     maxAge: 36000,
     // maxAge: 1728000, // 20 days
     httpOnly: true,
