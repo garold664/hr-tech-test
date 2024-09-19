@@ -5,12 +5,10 @@ import createApolloClient from './apollo/apollo-client';
 import { REFRESH_TOKEN } from './apollo/queries';
 import { setAccessToken, setRefreshToken } from './helpers/helpers';
 
-const origin = process.env.ORIGIN;
-console.log(origin);
-
 const apolloClient = createApolloClient();
 export async function middleware(request: NextRequest) {
   const currentUrl = request.url;
+
   const cookieStore = cookies();
   const accessToken = cookieStore.get('Access-Token');
   const refreshToken = cookieStore.get('Refresh-Token');
@@ -34,11 +32,11 @@ export async function middleware(request: NextRequest) {
       return response;
     }
 
-    if (!refreshToken && currentUrl !== origin + '/login')
+    if (!refreshToken && currentUrl !== new URL('/login', request.url).href)
       return NextResponse.redirect(new URL('/login', request.url));
   }
 
-  if (accessToken && currentUrl === origin + '/login') {
+  if (accessToken && currentUrl === new URL('/login', request.url).href) {
     return NextResponse.redirect(new URL('/my-info/time-off', request.url));
   }
 }
