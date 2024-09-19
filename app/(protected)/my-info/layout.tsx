@@ -7,12 +7,12 @@ interface MyInfoLayoutProps {
 }
 export default function MyInfoLayout({ children }: MyInfoLayoutProps) {
   return (
-    <div className="layout-grid gap-x-6 mx-auto bg-secondary pb-[290px]">
+    <div className="layout-grid xl:gap-x-6 mx-auto bg-secondary pb-[290px]">
       <Avatar />
       <SideBar />
       <MyInfoHeader />
       <div className="layout-bg bg-primary pt-16 font-medium" />
-      <main className="layout-main bg-white rounded-b-2xl p-4 pt-9 pb-24">
+      <main className="layout-main bg-white xl:rounded-b-2xl rounded-none px-6 xl:px-4 pt-9 pb-24 xl:w-auto">
         {children}
       </main>
     </div>

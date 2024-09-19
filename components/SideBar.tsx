@@ -15,7 +15,7 @@ import CircleUser from '@/assets/icons/circle-user.svg';
 
 export default function SideBar() {
   return (
-    <aside className="layout-aside -mt-4">
+    <aside className="layout-aside -mt-4 hidden xl:block">
       <Card>
         <a
           href="tel:07911 654321"

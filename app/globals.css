@@ -71,3 +71,14 @@ body {
     height: 16px;
   }
 }
+
+@media (max-width: 1280px) {
+  .layout-grid {
+    display: grid;
+    grid-template-areas:
+      'gutter1 header gutter2'
+      'gutter1 main gutter2';
+    grid-template-columns: 0 auto 0;
+    grid-template-rows: 184px auto;
+  }
+}

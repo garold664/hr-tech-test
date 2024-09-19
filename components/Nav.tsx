@@ -49,7 +49,7 @@ export default function Nav() {
     };
   }, [setUser]);
   return (
-    <nav className="relative flex items-center justify-between xl:justify-start px-6 py-2 max-w-[1440px] mx-auto xl:pt-8 xl:pb-3">
+    <nav className="relative flex items-center justify-between xl:justify-start px-6 py-2 max-w-[1440px] mx-auto xl:pt-8 xl:pb-3 gap-1">
       <Link href="/" className="text-xl hover:text-accent xl:font-bold xl:mb-4">
         HarmonyHR
       </Link>
@@ -61,7 +61,7 @@ export default function Nav() {
         />
       )}
       <SearchBar windowWidth={windowWidth} />
-      <div className="flex gap-6 items-center xl:-mt-3 xl:ml-3">
+      <div className="flex gap-2 xl:gap-6 items-center xl:-mt-3 xl:ml-3">
         {windowWidth === 'sm' && <MenuButton />}
         {windowWidth === 'xl' && (
           <>
@@ -87,7 +87,7 @@ export default function Nav() {
         )}
         <Link
           href="/profile"
-          className=" relative w-9 h-9 hover:shadow-sm hover:shadow-accent rounded-full shrink-0"
+          className="relative -z-10 w-9 h-9 hover:shadow-sm hover:shadow-accent rounded-full shrink-0"
         >
           {avatar && (
             <Image

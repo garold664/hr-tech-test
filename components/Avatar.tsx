@@ -8,7 +8,7 @@ export default function Avatar() {
     user: { avatar },
   } = useUserStore();
   return (
-    <div className="layout-avatar relative">
+    <div className="layout-avatar relative hidden xl:block">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150px] h-[150px]">
         {avatar && (
           <Image src={avatar} fill alt="avatar" className="rounded-full" />

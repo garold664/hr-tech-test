@@ -17,7 +17,7 @@ export default function SearchBar({ windowWidth }: SearchBarProps) {
       className={`xl:w-[395px] xl:-mt-3 xl:mr-auto ${
         showFullWidthSearch && windowWidth === 'sm'
           ? 'absolute inset-0 w-full h-full flex items-center px-2 pr-10 bg-white'
-          : 'relative'
+          : 'relative ml-auto'
       }`}
     >
       <Input
