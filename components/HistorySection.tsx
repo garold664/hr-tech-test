@@ -69,7 +69,7 @@ export default function HistorySection() {
       <div className="flex">
         <ScrollArea type="always" className="pb-4 overflow-x-auto flex-1 w-1">
           <ScrollBar orientation="horizontal" />
-          <Table className="mt-4 min-w-[800px]">
+          <Table className="mt-4">
             <TableHeader className="">
               <TableRow className="bg-primary">
                 {tableHeaders.map((header) => (

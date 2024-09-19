@@ -29,7 +29,7 @@ export default function Nav() {
     const observer = new ResizeObserver((entries) => {
       const container = entries[0]?.target;
       if (!container) return;
-      if (container.clientWidth >= 1280) {
+      if (container.clientWidth > 1300) {
         setWindowWidth('xl');
       } else {
         setWindowWidth('sm');

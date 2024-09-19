@@ -11,6 +11,7 @@ interface SearchBarProps {
 }
 export default function SearchBar({ windowWidth }: SearchBarProps) {
   const [showFullWidthSearch, setShowFullWidthSearch] = useState(false);
+  console.log(windowWidth);
   return (
     <form
       action=""

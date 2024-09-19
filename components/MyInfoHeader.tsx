@@ -66,7 +66,7 @@ export default function MyInfoHeader() {
         </div>
       </div>
       <div className="flex max-w-full px-1">
-        <ScrollArea className="flex-1 w-1 overflow-y-visible">
+        <ScrollArea className="flex-1 w-1 lg:w-full overflow-y-visible">
           <ScrollBar orientation="horizontal" />
           <DesktopLinks
             links={MyInfoLinks}
