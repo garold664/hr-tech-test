@@ -10,18 +10,18 @@ export const mainNavLinks = [
 ];
 
 export const MyInfoLinks = [
-  { name: 'Personal', href: 'my-info/personal' },
-  { name: 'Job', href: 'my-info/job' },
-  { name: 'Time Off', href: 'my-info/time-off' },
-  { name: 'Emergency', href: 'my-info/emergency' },
-  { name: 'Documents', href: 'my-info/documents' },
-  { name: 'Notes', href: 'my-info/notes' },
-  { name: 'Benefits', href: 'my-info/benefits' },
-  { name: 'Training', href: 'my-info/training' },
-  { name: 'Assets', href: 'my-info/assets' },
-  { name: 'Salary', href: 'my-info/salary' },
-  { name: 'Bonuses', href: 'my-info/bonuses' },
-  { name: 'Advertisements', href: 'my-info/advertisements' },
+  { name: 'Personal', href: 'personal' },
+  { name: 'Job', href: 'job' },
+  { name: 'Time Off', href: 'time-off' },
+  { name: 'Emergency', href: 'emergency' },
+  { name: 'Documents', href: 'documents' },
+  { name: 'Notes', href: 'notes' },
+  { name: 'Benefits', href: 'benefits' },
+  { name: 'Training', href: 'training' },
+  { name: 'Assets', href: 'assets' },
+  { name: 'Salary', href: 'salary' },
+  { name: 'Bonuses', href: 'bonuses' },
+  { name: 'Advertisements', href: 'advertisements' },
 ];
 
 export const upcomingTimeOff: TimeOff[] = [

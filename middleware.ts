@@ -4,9 +4,8 @@ import type { NextRequest } from 'next/server';
 import createApolloClient from './apollo/apollo-client';
 import { REFRESH_TOKEN } from './apollo/queries';
 import { setAccessToken, setRefreshToken } from './helpers/helpers';
-
-const apolloClient = createApolloClient();
 export async function middleware(request: NextRequest) {
+  const apolloClient = createApolloClient();
   const currentUrl = request.url;
 
   const cookieStore = cookies();
@@ -14,21 +13,25 @@ export async function middleware(request: NextRequest) {
   const refreshToken = cookieStore.get('Refresh-Token');
 
   if (!accessToken) {
+    const response = NextResponse.next();
     if (refreshToken) {
-      const {
-        data: {
-          refreshToken: { refresh_token, access_token },
-        },
-      } = await apolloClient.mutate({
-        mutation: REFRESH_TOKEN,
-        variables: {
-          refresh_token: refreshToken.value,
-        },
-      });
+      try {
+        const {
+          data: {
+            refreshToken: { refresh_token, access_token },
+          },
+        } = await apolloClient.mutate({
+          mutation: REFRESH_TOKEN,
+          variables: {
+            refresh_token: refreshToken.value,
+          },
+        });
 
-      const response = NextResponse.next();
-      setAccessToken(response.cookies, access_token);
-      setRefreshToken(response.cookies, refresh_token);
+        setAccessToken(response.cookies, access_token);
+        setRefreshToken(response.cookies, refresh_token);
+      } catch (error) {
+        console.error(error);
+      }
       return response;
     }
 
